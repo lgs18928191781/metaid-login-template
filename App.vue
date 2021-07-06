@@ -18,12 +18,12 @@ export default {
   methods: {
       ...mapMutations(['setLang']),
       getSyetemLang() {
-      switch (navigator.language) {
+      switch (navigator.language?.substring(0,2).toLowerCase() || navigator.browserLanguage?.substring(0,2).toLowerCase()) {
         case "en":
           this.$i18n.locale = "en";
           this.setLang(this.$i18n.locale);
           break;
-        case "zh-CN":
+        case "zh":
           this.$i18n.locale = "zh";
           this.setLang(this.$i18n.locale);
           break;
